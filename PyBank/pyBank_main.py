@@ -1,6 +1,6 @@
 #import os # imports the os module allowing to create file paths
 import csv # reading csv file
-import pandas as pd
+
 
 
 #specified exact location of file path and opens the file
@@ -8,7 +8,6 @@ opencsv = open('/Users/ddavis85/Python-Challenge/PyBank/Resources/budget_data.cs
 csvreader = csv.reader(opencsv, delimiter=",")  # reads the content of that file
 csv_header = next(csvreader)
 
-# df_min_max_values = pd.read_csv('/Users/ddavis85/Python-Challenge/PyBank/Resources/budget_data.csv')
 
 '''
 Calculate the following: 
@@ -86,18 +85,18 @@ print("Greatest Decrease in Profits:    " + str(date_least_profit) + " " + "S", 
 file_output = open("pyBank_output.txt", "w")
 
 file_output.write("Financial Analysis")
-file_output.write(" ")
+file_output.write("\n")
 file_output.write("--------------------------------------------------")
-file_output.write(" ")
+file_output.write("\n")
 file_output.write("Total Months:    " + str(total_months))
-file_output.write(" ")
-#file_output.write("Total Profits:  " + "{:,}".format(currency_total))
-#file_output.write(" ")
-#file_output.write("Average Change in Profits: " + "{:,}".format(currency_change))
-#file_output.write(" ")
-#file_output.write("Greatest Increase in Profits:  " + str(date_greatest_profit) + "{:,}".format(currency_greatest))
-#file_output.write(" ")
-#file_output.write("Greatest Decrease in Profits:    " + str(date_least_profit) + "{:,}".format(currency_least))
+file_output.write("\n")
+file_output.write("Total Profits:  " + str(format(currency_total)))
+file_output.write("\n")
+file_output.write("Average Change in Profits: " + str(format(currency_change)))
+file_output.write("\n")
+file_output.write("Greatest Increase in Profits:  " + str(date_greatest_profit) + str(format(currency_greatest)))
+file_output.write("\n")
+file_output.write("Greatest Decrease in Profits:    " + str(date_least_profit) + str(format(currency_least)))
 
 
 
