@@ -1,15 +1,20 @@
 import csv
 import pandas as pd
+ß
+#Using pandas to create dataframe that would gathered counts of votes and displays unique candidates
 
 file_pd_poll =  pd.read_csv('/Users/ddavis85/Python-Challenge/PyPoll/Resources/election_data.csv')
 
-total_ballot = len(file_pd_poll)
+total_ballot = len(file_pd_poll) #gathers total count of votes casted
 
-candidate_ballot_count = file_pd_poll["Candidate"].value_counts()
+candidate_ballot_count = file_pd_poll["Candidate"].value_counts() # totals the number of votes assoicated to each unique candidates
    
-percent_ballot_count = (candidate_ballot_count / total_ballot) * 100
+percent_ballot_count = (candidate_ballot_count / total_ballot) * 100 #calcuates the total votes by the vote each candidate has
 
-candidate_winner = candidate_ballot_count.idxmax()
+candidate_winner = candidate_ballot_count.idxmax() #invoked idxmax uses to find the index with the greatest number of votes to determine the winner
+
+
+#Outputs the results - concatnated both the percentage vote and number of votes for each candidate
 
 print("Here is the election Results:    ")
 print(" ")
@@ -25,6 +30,8 @@ print("Raymon Anthony Doane:   "+ "%" + str(round(percent_ballot_count[2], 3)) +
 print(" ")
 print(" ")
 print("Winner:  " + candidate_winner)
+
+#Outputs and Exports the results to an text file called pyPoll_output.txtß
 
 output_result = open("pyPoll_output.txt", "w")
 

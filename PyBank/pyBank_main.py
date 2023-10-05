@@ -1,12 +1,9 @@
-#import os # imports the os module allowing to create file paths
 import csv # reading csv file
-
-
 
 #specified exact location of file path and opens the file
 opencsv = open('/Users/ddavis85/Python-Challenge/PyBank/Resources/budget_data.csv')
 csvreader = csv.reader(opencsv, delimiter=",")  # reads the content of that file
-csv_header = next(csvreader)
+csv_header = next(csvreader) # skips the header
 
 
 '''
@@ -52,16 +49,22 @@ for y in range(1, len(profits)):
 
 average_profit_change = sum(net_profit_change) / len(net_profit_change)
 
+#using min and max to determine the highest and lowest profit from the net_profit_change
 greatest_increase_profit = max(net_profit_change)
 least_increase_profit = min(net_profit_change)
 
+# assigned these variable to determine the date that corresponds to the min and max profits
+#invoked the index to locate the date that refereces to the min and max profits 
+date_greatest_profit = dates[net_profit_change.index(max(net_profit_change))+1]
+date_least_profit = dates[net_profit_change.index(min(net_profit_change))+1]
+
+#format the numbers
 currency_total = "{:,}".format(net_total)
 currency_change = "{:.2f}".format(average_profit_change)
 currency_greatest = "{:,}".format(greatest_increase_profit)
 currency_least = "{:,}".format(least_increase_profit)
 
-date_greatest_profit = dates[net_profit_change.index(max(net_profit_change))+1]
-date_least_profit = dates[net_profit_change.index(min(net_profit_change))+1]
+
 
 #Displaying output on the terminal results
 
